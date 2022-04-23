@@ -6,7 +6,7 @@ entity fetch is
     port (
         --Entrada
         data_memory : in std_logic_vector(7 downto 0);
-        
+        program_counter : in std_logic_vector(11 downto 0);
         --Saida
         address_emmory : out std_logic_vector(11 downto 0);
         instruction : out std_logic_vector(15 downto 0)
