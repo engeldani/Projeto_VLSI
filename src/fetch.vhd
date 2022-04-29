@@ -8,7 +8,6 @@ entity fetch is
         clock       : in std_logic;
         reset       : in std_logic;
         data_memory : in std_logic_vector(7 downto 0);
-        --pc          : in std_logic_vector(11 downto 0);
         --Saida
         address_memory : out std_logic_vector(11 downto 0);
         instruction : out std_logic_vector(15 downto 0);
@@ -29,19 +28,18 @@ begin
     begin
         if reset = '1' then
             FSM <= fetch1;
-            pc <= "000000000001";
+            pc <= x"200";
             address_memory <= pc;
         elsif rising_edge(clock) then
-        case FSM is
+            pc <= pc + 1;
+            case FSM is
                 when fetch1 =>
-                    pc <= pc + 1;
                     address_memory <= pc;
-                    instruction <= data_memory;
+                    instruction(7 downto 0) <= data_memory;
                     FSM <= fetch2;
                 when fetch2 =>
-                    pc <= pc + 1;
                     address_memory <= pc;
-                    instruction <= data_memory;
+                    instruction(15 downto 8) <= data_memory;
                     FSM <= fetch1;
             end case;
         end if;
