@@ -8,9 +8,8 @@ port(
     PROG_N      : in std_logic;
     PROG_ADDR   : in std_logic_vector(11 downto 0);
     PROG_DATA   : in std_logic_vector(7 downto 0);        
-    op_code     : in std_logic_vector(15 downto 0);
-            
-                : out std_logic_vector(3 downto 0)
+    OPCODES     : in std_logic_vector(15 downto 0)
+    
 );
 end chip8;
     architecture decodificador of chip8 is
