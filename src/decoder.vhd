@@ -3,18 +3,20 @@ use ieee.std_logic_1164.all;
  
 entity chip8 is
 port(
-    CLK         : in std_logic;
-    KEY         : in std_logic_vector(15 downto 0);
-    PROG_N      : in std_logic;
-    PROG_ADDR   : in std_logic_vector(11 downto 0);
-    PROG_DATA   : in std_logic_vector(7 downto 0);        
-    OPCODES     : in std_logic_vector(15 downto 0)
+    clock         : in std_logic;
+    reset         : in std_logic;
+    
+    key         : in std_logic_vector(15 downto 0);
+    prog_n      : in std_logic;
+    prog_addr   : in std_logic_vector(11 downto 0);
+    prog_data   : in std_logic_vector(7 downto 0);        
+    opcodes     : in std_logic_vector(15 downto 0)
     
 );
 end chip8;
     architecture decodificador of chip8 is
         
-        constant OPCODES               : std_logic_vector(7 downto 0) := X"0C";
+        constant opcodes               : std_logic_vector(7 downto 0) := X"0C";
      
         signal VX_LOAD, VX_VAL, VY_VAL : std_logic_vector(7 downto 0);
         signal VX_ADDR, VY_ADDR        : std_logic_vector(15 downto 0);
@@ -33,8 +35,8 @@ begin
    -- Máquina de estados
     process(ESTADO_ATUAL, INICIAR, PROG_FLAG, ADDR_END)
     begin
-       PROG_N <= '0';
-       ADDR_RST <= '1';
+       prog_n <= '0';
+       reset <= '1';
        
        case ESTADO_ATUAL is
           when s_idle =>
