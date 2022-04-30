@@ -29,12 +29,67 @@ end chip8;
         signal I_SEL : natural range 0 to 2;
         signal I_EN : std_logic;
 begin
- 
-process(a)
-begin
-case a is
 
-end case;
-end process;
+   -- Máquina de estados
+    process(ESTADO_ATUAL, INICIAR, PROG_FLAG, ADDR_END)
+    begin
+       PROG_N <= '0';
+       ADDR_RST <= '1';
+       
+       case ESTADO_ATUAL is
+          when s_idle =>
+             PROG_N <= '1';
+             
+             if INICIAR = '1' then
+                ESTADO <= s_wait;
+             else
+                ESTADO <= s_idle;
+             end if;
+             
+          when s_wait =>
+             if PROG_FLAG = '1' then
+                ESTADO <= s_program;
+             else
+                ESTADO <= s_wait;
+             end if;
+          
+          when s_program =>
+             ESTADO <= s_program;
+             ADDR_RST <= '0';
+             
+             if ADDR_END = '1' then
+                ESTADO <= s_end;
+             end if;
+             
+          when s_end =>
+             PROG_N <= '1';
+             
+             if INICIAR = '1' then
+                ESTADO <= s_end;
+             else
+                ESTADO <= s_idle;
+             end if;
+             
+       end case;
+    end process;
+    
+    process(CLK)
+    begin
+       if rising_edge(CLK) then
+          if ADDR_RST = '1' then
+             ADDR <= (others => '0');
+          else
+             ADDR <= ADDR + 1;
+          end if;
+       end if;
+    end process;
+ 
+    process(CLK)
+    begin
+       if rising_edge(CLK) then
+          ESTADO_ATUAL <= ESTADO;
+          PROG_DATA <= ROM(to_integer(ADDR(11 downto 0)));
+       end if;
+    end process;
  
 end decodificador;
