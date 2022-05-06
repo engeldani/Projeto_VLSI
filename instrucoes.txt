@@ -246,9 +246,15 @@ Fx33 - LD B, Vx
 	Obs. existem algoritmos para converter de binário para BCD que não requerem divisao
 
 Fx55 - LD [I], Vx
-	Store context
-	@todo
+	Para j de 0 até x:
+		* mem[I] <- V[j]
+		* I = I + 1
+	No final:
+		* I = I - x
 
 Fx65 - LD Vx, [I]
-	Read context
-	@todo
+	Para j de 0 até x:
+		* V[j] <- mem[I]
+		* I = I + 1
+	No final:
+		* I = I - x
