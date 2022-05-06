@@ -234,8 +234,16 @@ Fx29 - LD F, Vx
 	* I <- saída da ALU
 
 Fx33 - LD B, Vx
-	Store BCD
-	@todo
+	1o - gravar centena em I e somar 1 em I
+	* mem[i] <- BCD da centena de V[x]
+	* i = i + 1
+	2o - gravar a dezena em I e somar 1 em I
+	* mem[I] <- BCD da dezena de V[x]
+	* I = I + 1
+	3o - gravar a unidade em I e voltar o valor para o I original
+	* mem[I] < BCD das unidades de V[x]
+	* I = I - 2
+	Obs. existem algoritmos para converter de binário para BCD que não requerem divisao
 
 Fx55 - LD [I], Vx
 	Store context
