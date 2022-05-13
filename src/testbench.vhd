@@ -1,0 +1,74 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity testbench is
+end testbench;
+
+architecture testbench of testbench is
+    signal clock_tb : std_logic;
+    signal tecla_out : std_logic_vector;
+    signal f_in : std_logic;
+    signal e_in :std_logic;
+    signal d_in: std_logic;
+    signal k_out :std_logic;
+    signal j_out :std_logic;
+    signal h_out :std_logic;
+    signal g_out : std_logic;
+   
+
+   -- signal led_tb : std_logic_vector(0 to 3);
+begin
+
+    --reset_tb     <= '0', '1' after 100 ns;
+	-- 50 MHz
+	clock_tb     <= not clock_tb after 20 ns;
+
+    teclado : entity work.teclado
+        port map(
+            CLOCK   => clock_tb,
+            --reset       => reset_tb,
+            TECLA   => tecla_out,
+            F       => f_in,
+            E       => e_in,
+            D       => d_in,
+            K       => k_out,
+            J       => j_out,
+            H       => h_out,
+            G       => g_out
+            --led_out    => led_tb
+        );
+
+    process is
+        begin
+            tecla_out <= '0';
+            wait for 155 ns;
+            
+            tecla_out <= '1';
+            wait for 400 ns;
+            tecla_out <= '0';
+            wait for 160 ns;
+
+            tecla_out <= '1';
+            wait for 40 ns;
+            tecla_out <= '0';
+            wait for 160 ns;
+
+            tecla_out <= '1';
+            wait for 40 ns;
+            tecla_out <= '0';
+            wait for 160 ns;
+
+            tecla_out <= '1';
+            wait for 40 ns;
+            tecla_out <= '0';
+            wait for 160 ns;
+
+            tecla_out <= '1';
+            wait for 40 ns;
+            tecla_out <= '0';
+            wait for 160 ns;
+    
+            wait;
+        end process;
+    
+end architecture;
