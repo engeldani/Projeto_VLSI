@@ -1,72 +1,55 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
 
 entity lsu is
     port (
         --Entrada
-        clock       : in std_logic;
-        reset       : in std_logic;
-        data        : in std_logic_vector(7 downto 0);
-        --data_memory : in std_logic_vector(7 downto 0);
+        bin:    in  std_logic_vector (7 downto 0);
         --Saida
-        address_memory : out std_logic_vector(11 downto 0);
-        instruction : out std_logic_vector(15 downto 0);
-        decode : out std_logic
+        bcd:    out std_logic_vector (11 downto 0)
     );
 end lsu;
 
 architecture lsu of lsu is
-    type load is (l1, l2);
-    signal FSM1 : load;
-    type store is (s1, s2);
-    signal FSM2 : store;
+    procedure add3 (signal bin: in  std_logic_vector (3 downto 0); 
+                    signal bcd: out std_logic_vector (3 downto 0)) is
+    variable is_gt_4:  std_logic;
+    begin
+        is_gt_4 := bin(3) or (bin(2) and (bin(1) or bin(0)));
 
-    signal pc : std_logic_vector(11 downto 0);
-    signal data_memory : std_logic_vector(7 downto 0);
+        if is_gt_4 = '1' then
+        -- if to_integer(unsigned (bin)) > 4 then
+            bcd <= std_logic_vector(unsigned(bin) + "0011");
+        else
+            bcd <= bin;
+        end if;
+    end procedure;
+    
+    signal U0bin,U1bin,U2bin,U3bin,U4bin,U5bin,U6bin:
+        std_logic_vector (3 downto 0);
+
+    signal U0bcd,U1bcd,U2bcd,U3bcd,U4bcd,U5bcd,U6bcd:
+        std_logic_vector (3 downto 0);       
 begin
-    decode <= '0' when FSM1 = l1 else
-              '1' when FSM1 = l2;
+    U0bin <= '0' & bin (7 downto 5);
+    U1bin <= U0bcd(2 downto 0) & bin(4);
+    U2bin <= U1bcd(2 downto 0) & bin(3);
+    U3bin <= U2bcd(2 downto 0) & bin(2);
+    U4bin <= U3bcd(2 downto 0) & bin(1);
 
-    process(clock, reset)
-    begin
-        if reset = '1' then
-            FSM1 <= l1;
-            pc <= x"200";
-            address_memory <= pc;
-        elsif rising_edge(clock) then
-            pc <= pc + 1;
-            case FSM1 is
-                when l1 =>
-                    address_memory <= pc;
-                    instruction(7 downto 0) <= data_memory;
-                    FSM1 <= l2;
-                when l2 =>
-                    address_memory <= pc;
-                    instruction(15 downto 8) <= data_memory;
-                    FSM1 <= l1;
-            end case;
-        end if;
-    end process;
+    U5bin <= '0' & U0bcd(3) & U1bcd(3) & U2bcd(3);
+    U6bin <= U5bcd(2 downto 0) & U3bcd(3);
 
-    process(clock, reset)
-    begin
-        if reset = '1' then
-            FSM2 <= s1;
-            pc <= x"200";
-            address_memory <= pc;
-        elsif rising_edge(clock) then
-            pc <= pc + 1;
-            case FSM2 is
-                when s1 =>
-                    address_memory <= pc;
-                    data_memory(7 downto 0) <= data;
-                    FSM2 <= s2;
-                when s2 =>
-                    address_memory <= pc;
-                    data_memory(7 downto 0) <= data;
-                    FSM2 <= s1;
-            end case;
-        end if;
-    end process;
+U0: add3(U0bin,U0bcd);
+U1: add3(U1bin,U1bcd);
+U2: add3(U2bin,U2bcd);
+U3: add3(U3bin,U3bcd);
+U4: add3(U4bin,U4bcd);
+U5: add3(U5bin,U5bcd);
+U6: add3(U6bin,U6bcd);
+
+OUTP:
+    bcd <= '0' & '0' & U5bcd(3) & U6bcd & U4bcd & bin(0);
 end architecture;
