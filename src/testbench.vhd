@@ -7,14 +7,17 @@ end testbench;
 architecture testbench of testbench is
     signal clock_tb : std_logic;
     signal tecla_out : std_logic_vector;
-    signal f_in : std_logic;
-    signal e_in :std_logic;
+    signal a_in : std_logic;
+    signal b_in : std_logic;
+    signal c_in : std_logic;
     signal d_in: std_logic;
-    signal k_out :std_logic;
-    signal j_out :std_logic;
-    signal h_out :std_logic;
+    signal e_out :std_logic;
+    signal f_out : std_logic;
     signal g_out : std_logic;
-   
+    signal h_out :std_logic;
+    
+    
+    
 
    -- signal led_tb : std_logic_vector(0 to 3);
 begin
@@ -28,13 +31,17 @@ begin
             CLOCK   => clock_tb,
             --reset       => reset_tb,
             TECLA   => tecla_out,
-            F       => f_in,
-            E       => e_in,
+            A       => a_in,
+            B       => b_in,
+            C       => c_in,
             D       => d_in,
-            K       => k_out,
-            J       => j_out,
-            H       => h_out,
+            E       => e_out,
+            F       => f_out,
             G       => g_out
+            H       => h_out,
+           
+            
+            
             --led_out    => led_tb
         );
 
