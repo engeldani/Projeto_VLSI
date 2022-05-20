@@ -7,48 +7,26 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/greic/Desktop/Projeto_VLSI/src
+Z0 dC:/Users/greic/Desktop/Projeto_VLSI/SRC
 Eteclado
-w1651279575
-Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 6
+w1653071013
+DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
 R0
-8C:/Users/greic/Desktop/Projeto_VLSI/src/teclado.vhd
-FC:/Users/greic/Desktop/Projeto_VLSI/src/teclado.vhd
+8teclado.vhd
+Fteclado.vhd
 l0
 L4 1
-VVL]S;>1cOf_JBJQ:j]`oF3
-!s100 k`5V_E4=MA5fPB14_>cHG0
-Z3 OL;C;2021.2;73
+V3;0HaFN<zRbIl51@7AeA^1
+!s100 EKJMW6K0mYW^fje?7HBWo2
+OL;C;2021.2;73
 32
-!s110 1652484647
+!s110 1653072073
 !i10b 1
-!s108 1652484647.000000
-!s90 -reportprogress|300|-work|work|C:/Users/greic/Desktop/Projeto_VLSI/src/teclado.vhd|
-!s107 C:/Users/greic/Desktop/Projeto_VLSI/src/teclado.vhd|
+!s108 1653072072.000000
+!s90 -work|work|teclado.vhd|
+!s107 teclado.vhd|
 !i113 0
-Z4 o-work work
-Z5 tExplicit 1 CvgOpt 0
-Etestbench
-w1652484566
-R1
-R2
-!i122 7
-R0
-8C:/Users/greic/Desktop/Projeto_VLSI/src/testbench.vhd
-FC:/Users/greic/Desktop/Projeto_VLSI/src/testbench.vhd
-l0
-L4 1
-VfJ:3BSenWcN^EEM?K_F^Y0
-!s100 ?;Fi2HEi<1II4RT3IjQ^^2
-R3
-32
-!s110 1652484654
-!i10b 1
-!s108 1652484654.000000
-!s90 -reportprogress|300|-work|work|C:/Users/greic/Desktop/Projeto_VLSI/src/testbench.vhd|
-!s107 C:/Users/greic/Desktop/Projeto_VLSI/src/testbench.vhd|
-!i113 0
-R4
-R5
+o-work work
+tExplicit 1 CvgOpt 0

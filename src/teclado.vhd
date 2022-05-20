@@ -4,8 +4,8 @@ USE ieee.std_logic_1164.ALL;
 ENTITY teclado IS
     PORT (
         CLOCK : IN STD_LOGIC;
-        F, E, D : IN STD_LOGIC;
-        K, J, H, G : OUT STD_LOGIC;
+        A, B,C, D : IN STD_LOGIC;
+        E, F, G, H : OUT STD_LOGIC;
         TECLA : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
     );
 END teclado;
@@ -16,17 +16,17 @@ ARCHITECTURE teclado OF teclado IS
 
     SIGNAL teclado : estados := ATIVA_COLUNA; -- Declaração da maquina de estado e definição do estado inicial.
 BEGIN
-    PROCESS (F, E, D, K, J, H, G)
+    PROCESS (A,B,C,D,E,F,G,H)
         CASE teclado IS
                 -- Caso o estado seja ATIVA_COLUNA, grava as colunas em SEQUENCIA e muda o estado
             WHEN ATIVA_COLUNA =>
-                IF (F = '0' OR E = '0' OR D = '0') THEN
+                IF (A = '0' OR B = '0' OR C = '0' OR D ='0') THEN
                     SEQUENCIA (2 DOWNTO 0) <= F and E and D;
                     teclado <= ATIVA_LINHA;
                 END IF;
             WHEN OTHERS => -- (ou seja, quando "ATIVA_LINHA")
                 -- Verifica se o botão foi solto, se não continua em ATIVA_LINHA
-                IF K = 'H' AND J = 'H' AND H = 'H' AND G = 'H' THEN
+                IF E = '1' AND F = '1' AND G = '1' AND H = '1' THEN
                     teclado <= ATIVA_COLUNA;
                 END IF;
         END CASE;
