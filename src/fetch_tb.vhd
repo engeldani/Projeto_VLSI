@@ -31,14 +31,17 @@ begin
     -- 100 MHz
     clock     <= not clock after 5 ns;
 
-    process
-
+    process(clock, reset)
     begin
-        for i in 0 to 7 loop
-            data_memory_tb <= std_logic_vector(to_unsigned(i,8));
-            wait for 1 ns;
-        end loop;
-        wait for 1 ns;
-        wait;
+        -- Receber o PC
+        -- Usar o PC para endereçar a memória (ARRAY)
+        -- Escrever a saída no data_memory
+        -- Printar o byte escrito no data_emmory
+        -- data_memory <= memoria(pc)
+
+        -- Receber o 'decode'
+        -- if(decode = '1')
+            -- Printar o instruction
     end process;
+
 end architecture;
