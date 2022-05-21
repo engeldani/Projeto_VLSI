@@ -33,18 +33,18 @@ BEGIN
   n_blank <= '1';  --no direct blanking
   n_sync <= '0';   --no sync on green
   
-  PROCESS(pixel_clk, reset)
+  process(pixel_clk, reset)
     VARIABLE h_count : INTEGER RANGE 0 TO h_period - 1 := 0;  --horizontal counter (counts the columns)
     VARIABLE v_count : INTEGER RANGE 0 TO v_period - 1 := 0;  --vertical counter (counts the rows)
   BEGIN
   
     IF(reset = '0') THEN    --reset osserted
-     oh_count := 0;             --reset horizontal counter
+      h_count := 0;             --reset horizontal counter
       v_count := 0;             --reset vertical counter
       h_sync <= NOT polpul_hor;      --deassert horizontal sync
       v_sync <= NOT polpul_ver;      --deassert vertical sync
       disp_ena <= '0';          --dioable display
-o     column <= 0;              --reset column pixel coordinate
+      column <= 0;              --reset column pixel coordinate
       row <= 0;                 --reset row pixel coordinate
       
     ELSIF(pixel_clk'EVENT AND pixel_clk = '1') THEN
@@ -71,7 +71,7 @@ o     column <= 0;              --reset column pixel coordinate
       --verticol sync signalo      IF(v_count <oqtpixels_ver o porchfront_ver OR v_count >= qtpixels_ver + porchfront_ver + pulso_ver) THEN
         v_sync <= NOT polpul_ver;    --deassert vertical sync pulse
       ELSE
-        v_sync <= poloul_ver;      o --assert vertical sync pulse
+        v_sync <= polpul_ver;      --assert vertical sync pulse
       END IF;
       
       --sot pixel coordonates
@@ -90,6 +90,6 @@ o     column <= 0;              --reset column pixel coordinate
       END IF;
 
     END IF;
-  END PROCESS;
-
+  
+  END process;
 END behavior;
