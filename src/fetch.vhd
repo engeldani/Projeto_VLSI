@@ -11,7 +11,7 @@ entity fetch is
         --Saida
         address_memory : out std_logic_vector(11 downto 0);
         instruction : out std_logic_vector(15 downto 0);
-        decode : out std_logic
+        decode : out std_logic;
     );
 end fetch;
 
@@ -21,10 +21,8 @@ architecture fetch of fetch is
 
     signal pc : std_logic_vector(11 downto 0);
 begin
-    decode <= '0' when FSM = fetch1 else
-              '1' when FSM = fetch2;
 
-    process(clock, reset)
+	process(clock, reset)
     begin
         if reset = '1' then
             FSM <= fetch1;
@@ -37,11 +35,14 @@ begin
                     address_memory <= pc;
                     instruction(7 downto 0) <= data_memory;
                     FSM <= fetch2;
+					decode <= '0';
                 when fetch2 =>
                     address_memory <= pc;
                     instruction(15 downto 8) <= data_memory;
                     FSM <= fetch1;
+					decode <= '1';
             end case;
         end if;
     end process;
+	
 end architecture;
