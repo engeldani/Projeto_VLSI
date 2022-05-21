@@ -11,21 +11,24 @@ ENTITY vga_controller IS
     pulso_ver  : INTEGER := 3;      --vertical sync pulse width in rows
     backp_ver     : INTEGER := 38;     --vertical back porch width in rows
     qtpixels_ver : INTEGER := 1200;   --vertical display width in rows
-    porchfront_ver     : INTEGER := 1;      --vertical front porch width in rows
-    polpul_ver    : STD_LOGIC := '1'); --vertical sync pulse polarity (1 = positivo, 0 = negativo)
+    porchfront_ver  : INTEGER := 1;      --vertical front porch width in rows
+    polpul_ver      : STD_LOGIC := '1'
+  ); --vertical sync pulse polarity (1 = positivo, 0 = negativo)
+
   PORT(
     pixel_clk : IN   STD_LOGIC;  --pixel clock at frequency of VGA mode being used
-    reset   : IN   STD_LOGIC;  --active low asycnchronous reset
+    reset     : IN   STD_LOGIC;  --active low asycnchronous reset
     h_sync    : OUT  STD_LOGIC;  --horiztonal sync pulse
     v_sync    : OUT  STD_LOGIC;  --vertical sync pulse
     disp_ena  : OUT  STD_LOGIC;  --display enable ('1' = display time, '0' = blanking time)
     column    : OUT  INTEGER;    --horizontal pixel coordinate
     row       : OUT  INTEGER;    --vertical pixel coordinate
     n_blank   : OUT  STD_LOGIC;  --direct blacking output to DAC
-    n_sync    : OUT  STD_LOGIC); --sync-on-green output to DAC
+    n_sync    : OUT  STD_LOGIC
+  ); --sync-on-green output to DAC
 END vga_controller;
 
-ARCHITECTURE behavior OF vga_controller IS
+ARCHITECTURE rtl OF vga_controller IS
   CONSTANT h_period : INTEGER :=  pulso_hor + backp_hor + qtpixels_hor + porchfront_hor; --total number of pixel clocks in a row
   CONSTANT v_period : INTEGER := pulso_ver + backp_ver + qtpixels_ver + porchfront_ver; --total number of rows in column
 BEGIN
@@ -68,7 +71,8 @@ BEGIN
         h_sync <= polpul_hor;        --assert horiztonal sync pulse
       END IF;
       
-      --verticol sync signalo      IF(v_count <oqtpixels_ver o porchfront_ver OR v_count >= qtpixels_ver + porchfront_ver + pulso_ver) THEN
+      --verticol sync signalo
+      IF(v_count < qtpixels_ver + porchfront_ver OR v_count >= qtpixels_ver + porchfront_ver + pulso_ver) THEN
         v_sync <= NOT polpul_ver;    --deassert vertical sync pulse
       ELSE
         v_sync <= polpul_ver;      --assert vertical sync pulse
@@ -92,4 +96,4 @@ BEGIN
     END IF;
   
   END process;
-END behavior;
+END rtl;
