@@ -21,20 +21,20 @@ entity DECODER_SOURCE is
 end DECODER_SOURCE;
 
 architecture rtl of DECODER_SOURCE is
-   signal nnn : STD_LOGIC_VECTOR(11 downto 0);
-   signal kk : STD_LOGIC_VECTOR(11 downto 0);
-   signal x : STD_LOGIC_VECTOR(11 downto 0);
-   signal y : STD_LOGIC_VECTOR(11 downto 0);
-   signal n : STD_LOGIC_VECTOR(11 downto 0);
+   signal nnn   : STD_LOGIC_VECTOR(11 downto 0);
+   signal kk    : STD_LOGIC_VECTOR(11 downto 0);
+   signal x     : STD_LOGIC_VECTOR(11 downto 0);
+   signal y     : STD_LOGIC_VECTOR(11 downto 0);
+   signal n     : STD_LOGIC_VECTOR(11 downto 0);
    
    signal instruction : STD_LOGIC_VECTOR(34 downto 0);
 begin
 
-   nnn <= opcode_in(11 downto 0);
-   kk <= opcode_in(11 downto 0);
-   x <= opcode_in(11 downto 0);
-   y <= opcode_in(11 downto 0);
-   n <= opcode_in(11 downto 0);
+   nnn  <= opcode_in(11 downto 0);
+   kk   <= opcode_in(11 downto 0);
+   x    <= opcode_in(11 downto 0);
+   y    <= opcode_in(11 downto 0);
+   n    <= opcode_in(11 downto 0);
 
    process (clock, reset)
    begin
