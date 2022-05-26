@@ -10,11 +10,12 @@ entity DECODER_SOURCE is
 
       opcode_in : in STD_LOGIC_VECTOR(15 downto 0);
       
-      nnn_out : out STD_LOGIC_VECTOR(11 downto 0);
-      -- kk
-      -- x
-      -- y
-      -- n
+      nnn_out   : out STD_LOGIC_VECTOR(11 downto 0);
+      kk_out    : out STD_LOGIC_VECTOR(11 downto 0)
+      x_out     : out STD_LOGIC_VECTOR(11 downto 0)
+      y_out     : out STD_LOGIC_VECTOR(11 downto 0)
+      n_out     : out STD_LOGIC_VECTOR(11 downto 0)
+      
       instruction_out : out STD_LOGIC_VECTOR(34 downto 0);
    );
 end DECODER_SOURCE;
