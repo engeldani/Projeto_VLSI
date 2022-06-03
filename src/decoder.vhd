@@ -84,20 +84,36 @@ begin
 
 			when x"7" =>		
 				instruction <= "00000000000000000000000001000000000"; --ADD Vx, byte
-         when x"1" => 
-            -- instruction <= ?
-         when x"8" =>
-            case opcode_in(3 downto 00) is
-               when x"0" =>
-                  -- ?
-               when x"1" =>
-                  -- ?
-               -- .....
-            end case;
-         -- ......
-         when others => 
-            -- ERRO?
-      end case;
+            when x"8" =>
+				case opcode_in(3 downto 0) is
+					when x"0" =>
+						instruction <= "00000000000000000000000010000000000"; -- LD Vx, Vy
+					when x"1" =>
+						instruction <= "00000000000000000000000100000000000"; -- OR Vx, Vy
+
+					when x"2" =>
+						instruction <= "00000000000000000000001000000000000"; -- AND Vx, Vy
+
+
+					when others =>
+				end case;
+			
+
+			when x"E" =>
+				case opcode_in(7 downto 0) is
+				
+					when x"9E" =>
+				
+					when x"A1" =>
+
+					when others =>
+				end case;
+
+
+
+			when others => 
+				-- ERRO?
+		end case;
    end process;
 
 end architecture;
