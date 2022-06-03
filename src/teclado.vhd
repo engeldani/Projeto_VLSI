@@ -70,6 +70,7 @@ BEGIN
                     estado_proximo <= ESPERA_COLUNAS;
                 end if;
             WHEN ATIVA_E =>
+                if(col_state(4))
                 -- fazer
                 -- Verificar se nao é o E mesmo
                 -- Se for, encontramos a tecla, e vamos esperar as colunas
@@ -86,7 +87,12 @@ BEGIN
                 else
                     estado_proximo <= ATIVA_G;
                 end if;
+            WHEN ATIVA_G =>
             -- fazer G
+                if() then
+                elseif()       
+
+            WHEN ATIVA_H =>
             -- fazer H
         END CASE;
     END PROCESS;
