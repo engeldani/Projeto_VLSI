@@ -1,41 +1,51 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+library ieee;
+	use ieee.std_logic_1164.all;
+	use ieee.std_logic_unsigned.all;
+	use ieee.std_logic_arith.all;
 
-entity tb_decoder is
-end entity;
+entity testbench is
 
-architecture tb of tb_decoder is
-component DECODER_SOURCE is
-Port ( I : in STD_LOGIC_VECTOR (1 downto 0);
-Y : out STD_LOGIC_VECTOR (3 downto 0));
-end component;
+end testbench;
 
-signal I: STD_LOGIC_VECTOR(1 downto 0);
-signal Y: STD_LOGIC_VECTOR(3 downto 0)
+architecture tb of testbench is
+
+    signal  tb_clock 			: std_logic := '1';
+    signal  tb_reset 			: std_logic := '1';
+    signal  tb_opcode_in 		: std_logic_vector(15 downto 0) := x"0000";
+    signal  tb_nnn_out   		: std_logic_vector(11 downto 0);		-- address
+    signal  tb_kk_out    		: std_logic_vector(7 downto 0);
+    signal  tb_x_out     		: std_logic_vector(3 downto 0);
+    signal  tb_y_out     		: std_logic_vector(3 downto 0);
+    signal  tb_n_out     		: std_logic_vector(3 downto 0);
+    signal  tb_instruction_out 	: std_logic_vector(34 downto 0);
 
 begin
 
-uut: DECODER_SOURCE port map(
-I => I, Y => Y);
+	tb_clock <= not tb_clock after 10 ns;
 
-stim: process
-begin
+	tb_reset <= '1', '0' after 123 ns;
 
-I <= "00";
-wait for 20 ns;
 
-I <= "01";
-wait for 20 ns;
+	tb_opcode_in <= x"0000", 
+					x"00E0" after 200 ns,
+					x"0123" after 400 ns,
+					x"1BBB" after 600 ns,
+					x"2FFF" after 800 ns;
 
-I <= "10";
-wait for 20 ns;
 
-I <= "11";
-wait for 20 ns;
-wait;
+	decoder: entity work.DECODER_SOURCE
+	port map 
+	(
+		clock 			=> tb_clock, 			
+		reset 			=> tb_reset, 			
+		opcode_in 		=> tb_opcode_in, 		
+		nnn_out   		=> tb_nnn_out,   		
+		kk_out    		=> tb_kk_out,    		
+		x_out     		=> tb_x_out,     		
+		y_out     		=> tb_y_out,     		
+		n_out     		=> tb_n_out,     		
+		instruction_out => tb_instruction_out 	
+	);
 
-end process;
 
 end tb;
