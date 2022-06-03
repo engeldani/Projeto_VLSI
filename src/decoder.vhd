@@ -66,22 +66,16 @@ begin
 
 			when x"1" => 
 				instruction <= "00000000000000000000000000000001000"; -- JP ADDR.
-
 			when x"2" => 
 				instruction <= "00000000000000000000000000000010000"; -- CALL ADDR.
-
 			when x"3" => 
 				instruction <= "00000000000000000000000000000100000"; --  SE Vx, byte.
-
 			when x"4" => 
 				instruction <= "00000000000000000000000000001000000"; --  SNE Vx, byte.
-
 			when x"5" => 
 				instruction <= "00000000000000000000000000010000000"; -- SE Vx, Vy
-
 			when x"6" => 
 				instruction <= "00000000000000000000000000100000000"; -- LD Vx, byte
-
 			when x"7" =>		
 				instruction <= "00000000000000000000000001000000000"; --ADD Vx, byte
             when x"8" =>
@@ -90,14 +84,11 @@ begin
 						instruction <= "00000000000000000000000010000000000"; -- LD Vx, Vy
 					when x"1" =>
 						instruction <= "00000000000000000000000100000000000"; -- OR Vx, Vy
-
 					when x"2" =>
 						instruction <= "00000000000000000000001000000000000"; -- AND Vx, Vy
 
-
 					when others =>
 				end case;
-			
 
 			when x"E" =>
 				case opcode_in(7 downto 0) is
@@ -108,8 +99,6 @@ begin
 
 					when others =>
 				end case;
-
-
 
 			when others => 
 				-- ERRO?
