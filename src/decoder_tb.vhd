@@ -30,7 +30,8 @@ begin
 					x"00E0" after 200 ns,
 					x"0123" after 400 ns,
 					x"1BBB" after 600 ns,
-					x"2FFF" after 800 ns;
+					x"2FFF" after 800 ns,
+                    x"3EEE" after 1000 ns;
 
 
 	decoder: entity work.DECODER_SOURCE
