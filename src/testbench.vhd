@@ -44,38 +44,9 @@ begin
             
             --led_out    => led_tb
         );
-
-    process is
-        begin
-            tecla_out <= '0';
-            wait for 155 ns;
-            
-            tecla_out <= '1';
-            wait for 400 ns;
-            tecla_out <= '0';
-            wait for 160 ns;
-
-            tecla_out <= '1';
-            wait for 40 ns;
-            tecla_out <= '0';
-            wait for 160 ns;
-
-            tecla_out <= '1';
-            wait for 40 ns;
-            tecla_out <= '0';
-            wait for 160 ns;
-
-            tecla_out <= '1';
-            wait for 40 ns;
-            tecla_out <= '0';
-            wait for 160 ns;
-
-            tecla_out <= '1';
-            wait for 40 ns;
-            tecla_out <= '0';
-            wait for 160 ns;
-    
-            wait;
-        end process;
-    
+    a_in <= h_out;
+    b_in <= '0';
+    c_in <= '0';
+    d_in <= '0'
+   
 end architecture;

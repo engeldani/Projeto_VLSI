@@ -1,24 +1,30 @@
 # do sim.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
 # Questa Intel Starter FPGA Edition-64 vmap 2021.2 Lib Mapping Utility 2021.04 Apr 14 2021
 # vmap work work 
-# Copying E:/Questa/questa_fse/win64/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 19:13:09 on Jun 03,2022
+# Start time: 21:03:14 on Jun 03,2022
 # vcom -work work teclado.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity teclado
 # -- Compiling architecture rtl of teclado
-# ** Error: teclado.vhd(33): near "BEGIN": (vcom-1576) expecting STRING or IDENTIFIER or << or '('.
-# ** Note: teclado.vhd(41): VHDL Compiler exiting
-# End time: 19:13:10 on Jun 03,2022, Elapsed time: 0:00:01
-# Errors: 1, Warnings: 0
+# ** Error: teclado.vhd(76): near "=": (vcom-1576) expecting == or '+' or '-' or '&'.
+# ** Error: teclado.vhd(79): near "=": (vcom-1576) expecting == or '+' or '-' or '&'.
+# ** Error: teclado.vhd(88): near "=": (vcom-1576) expecting == or '+' or '-' or '&'.
+# ** Error: teclado.vhd(91): near "=": (vcom-1576) expecting == or '+' or '-' or '&'.
+# ** Error: teclado.vhd(99): near "=": (vcom-1576) expecting == or '+' or '-' or '&'.
+# ** Error: teclado.vhd(101): near "=": (vcom-1576) expecting == or '+' or '-' or '&'.
+# ** Error: teclado.vhd(109): near "=": (vcom-1576) expecting == or '+' or '-' or '&'.
+# ** Error: teclado.vhd(111): near "=": (vcom-1576) expecting == or '+' or '-' or '&'.
+# ** Note: teclado.vhd(118): VHDL Compiler exiting
+# End time: 21:03:15 on Jun 03,2022, Elapsed time: 0:00:01
+# Errors: 8, Warnings: 0
 # ** Error: E:/Questa/questa_fse/win64/vcom failed.
 # Error in macro ./sim.do line 5
 # E:/Questa/questa_fse/win64/vcom failed.
 #     while executing
 # "vcom -work work teclado.vhd"
-# Break key hit
-# Break key hit

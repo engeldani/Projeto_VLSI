@@ -29,28 +29,29 @@ ARCHITECTURE rtl OF teclado IS
 
     signal col_state : std_logic_vector(3 downto 0);
     signal col_prev  : std_logic_vector(3 downto 0);
-    signal tecla  : -- Escolher representar como 16 bits (1 bit por tecla) ou 4 bits (formato hexa, numerico);
+    signal tecla  :  std_logic_vector(3 downto 0); -- Escolher representar como 16 bits (1 bit por tecla) ou 4 bits (formato hexa, numerico);
 BEGIN
 
     -- COMB?
 
     -- SINCRONO
     process (clock, reset)
+        begin
         if reset = '1' then
             E <= '1';
             F <= '1';
             G <= '1';
             H <= '1';
             estado_ativo <= ESPERA_COLUNAS;
-            col_state <= '0000';
+            col_state <= "0000";
         elsif clock'event and clock = '1' then
             -- Sincronizando a entrada
-            col_state <= A and B and C and D;
+            col_state <= A & B & C & D;
 
             estado_ativo <= estado_proximo;
             if estado_proximo = ESPERA_COLUNAS then
                 col_prev <= col_state;
-            elsif estado_proximo = ESPERA_COLUNAS;
+            elsif estado_proximo = ESPERA_COLUNAS then
                 tecla_out <= tecla;
             end if;
         end if;
@@ -58,6 +59,7 @@ BEGIN
 
     -- TRANSICAO
     PROCESS (estado_ativo, col_state)--Fazer em forma de flipflop
+    begin    
         CASE estado_ativo IS
             -- Caso o estado seja ATIVA_COLUNA, grava as colunas em SEQUENCIA e muda o estado
             WHEN ESPERA_COLUNAS =>
@@ -70,30 +72,73 @@ BEGIN
                     estado_proximo <= ESPERA_COLUNAS;
                 end if;
             WHEN ATIVA_E =>
-                if(col_state(4))
-                -- fazer
-                -- Verificar se nao é o E mesmo
-                -- Se for, encontramos a tecla, e vamos esperar as colunas
-
-                -- Se nao, proxima linha
+            if(col_prev(3) = '1' and col_state(3) = '0') then
+                tecla = x"c";
+                estado_proximo <= ESPERA_COLUNAS;
+            elsif(col_prev(2) = '1' and col_state(2) = '0') then
+                tecla = x"d";
+                estado_proximo <= ESPERA_COLUNAS;
+            elsif(col_prev(1) = '1' and col_state(2) = '0') then
+                tecla = x"e";
+                estado_proximo <= ESPERA_COLUNAS;
+            elsif(col_prev(0) = '1' and col_state(2) = '0') then
+                tecla = x"f";
+                estado_proximo <= ESPERA_COLUNAS;
+            else
                 estado_proximo <= ATIVA_F;
+            end if;
+
             WHEN ATIVA_F =>
                 if(col_prev(3) = '1' and col_state(3) = '0') then
-                    tecla = x"04";
+                    tecla = x"8";
                     estado_proximo <= ESPERA_COLUNAS;
                 elsif(col_prev(2) = '1' and col_state(2) = '0') then
-                    tecla = x"05";
+                    tecla = x"9";
+                    estado_proximo <= ESPERA_COLUNAS;
+                elsif(col_prev(1) = '1' and col_state(2) = '0') then
+                    tecla = x"a";
+                    estado_proximo <= ESPERA_COLUNAS;
+                elsif(col_prev(0) = '1' and col_state(2) = '0') then
+                    tecla = x"b";
                     estado_proximo <= ESPERA_COLUNAS;
                 else
                     estado_proximo <= ATIVA_G;
                 end if;
             WHEN ATIVA_G =>
-            -- fazer G
-                if() then
-                elseif()       
+            if(col_prev(3) = '1' and col_state(3) = '0') then
+                tecla = x"4";
+                estado_proximo <= ESPERA_COLUNAS;
+            elsif(col_prev(2) = '1' and col_state(2) = '0') then
+                tecla = x"5";
+                estado_proximo <= ESPERA_COLUNAS;
+            elsif(col_prev(1) = '1' and col_state(2) = '0') then
+                tecla = x"6";
+                estado_proximo <= ESPERA_COLUNAS;
+            elsif(col_prev(0) = '1' and col_state(2) = '0') then
+                tecla = x"7";
+                estado_proximo <= ESPERA_COLUNAS;
+            else
+                
+                    estado_proximo <= ATIVA_H;
+                end if;      
 
             WHEN ATIVA_H =>
-            -- fazer H
+            if(col_prev(3) = '1' and col_state(3) = '0') then
+                tecla = x"0";
+                estado_proximo <= ESPERA_COLUNAS;
+            elsif(col_prev(2) = '1' and col_state(2) = '0') then
+                tecla = x"1";
+                estado_proximo <= ESPERA_COLUNAS;
+            elsif(col_prev(1) = '1' and col_state(2) = '0') then
+                tecla = x"2";
+                estado_proximo <= ESPERA_COLUNAS;
+            elsif(col_prev(0) = '1' and col_state(2) = '0') then
+                tecla = x"3";
+                estado_proximo <= ESPERA_COLUNAS;
+            else
+            
+                end if;     
+            
         END CASE;
     END PROCESS;
 end architecture;

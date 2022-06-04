@@ -9,10 +9,10 @@ z2
 cModel Technology
 Z0 dC:/Users/greic/Desktop/Projeto_VLSI/src
 Eteclado
-w1654294285
+w1654300983
 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 0
+!i122 9
 R0
 8teclado.vhd
 Fteclado.vhd
@@ -22,9 +22,9 @@ V4O:kRhI?8@Zk2L^EB2C=l3
 !s100 d]eBae[W=a9CkKK:U1i2T3
 OL;C;2021.2;73
 32
-!s110 1654294390
+!s110 1654300995
 !i10b 1
-!s108 1654294389.000000
+!s108 1654300994.000000
 !s90 -work|work|teclado.vhd|
 !s107 teclado.vhd|
 !i113 0
