@@ -64,7 +64,7 @@ begin
             hsync => hsync,
             vsync => vsync,
             hpos => hpos,
-            vpos => vpos,
+            vpos => vpos
             );
 
     reset     <= '1', '0' after 100 ns;
