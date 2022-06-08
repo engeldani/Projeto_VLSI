@@ -86,17 +86,18 @@ begin
 						instruction <= "00000000000000000000000100000000000"; -- OR Vx, Vy
 					when x"2" =>
 						instruction <= "00000000000000000000001000000000000"; -- AND Vx, Vy
-               when x"3" =>
+               		when x"3" =>
 						instruction <= "00000000000000000000010000000000000"; -- XOR Vx, Vy
-               when x"4" =>
+               		when x"4" =>
 						instruction <= "00000000000000000000100000000000000"; -- ADD Vx, Vy
-               when x"5" =>
+               		when x"5" =>
 						instruction <= "00000000000000000001000000000000000"; -- SUB Vx, Vy
-               when x"6" =>
+               		when x"6" =>
 						instruction <= "00000000000000000010000000000000000"; -- SHR Vx {, Vy}
-               when x"7" =>
+               		when x"7" =>
 						instruction <= "00000000000000000100000000000000000"; -- SUBN Vx, Vy
 					when others =>
+						instruction <= "00000000000000001000000000000000000";
 				end case;
 
 			when x"E" =>
