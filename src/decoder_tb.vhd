@@ -36,10 +36,26 @@ begin
 					x"5AAA" after 1400 ns,
                     x"6AED" after 1600 ns,
 					x"7BCD" after 1800 ns,
-					x"8ADA" after 2000 ns;
+					x"8ADA" after 2000 ns,
+					x"9E2A" after 2200 ns,
+					x"A1B3" after 2400 ns,
+					x"07BB" after 2600 ns,
+					x"0AFF" after 2800 ns,
+                    x"15EE" after 3000 ns,
+					x"18BB" after 3200 ns,
+					x"1EAA" after 3400 ns,
+                    x"29ED" after 3600 ns,
+					x"33CD" after 3800 ns,
+					x"55DA" after 4000 ns,
+					x"65B1" after 4200 ns,
+					x"95D3" after 4400 ns,
+					x"A5C2" after 4600 ns,
+					x"B5A4" after 4800 ns,
+					x"C5E1" after 5000 ns,
+					x"D5C2" after 5200 ns;
 
 
-	decoder: entity work.DECODER_SOURCE
+	decoder: entity work.decoder_source
 	port map 
 	(
 		clock 			=> tb_clock, 			
