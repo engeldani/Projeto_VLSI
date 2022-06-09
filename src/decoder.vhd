@@ -107,29 +107,29 @@ begin
 					when x"A1" =>
 						instruction <= "00000000000000100000000000000000000"; -- SKNP Vx
 					when others =>
-						instruction <= "00000000000001000000000000000000000"
+						instruction <= "00000000000001000000000000000000000";
 				end case;
 
 			when x"F" =>
 				case opcode_in(7 downto 0) is
 					when x"07" =>
-						instruction <= "00000000000010000000000000000000000" -- LD Vx, DT
+						instruction <= "00000000000010000000000000000000000"; -- LD Vx, DT
 					when x"0A" =>
-						instruction <= "00000000000100000000000000000000000" -- LD Vx, K
+						instruction <= "00000000000100000000000000000000000";-- LD Vx, K
 					when x"15" =>
-						instruction <= "00000000001000000000000000000000000" -- LD DT, Vx
+						instruction <= "00000000001000000000000000000000000"; -- LD DT, Vx
 					when x"18" =>
-						instruction <= "00000000010000000000000000000000000" -- LD ST, Vx
+						instruction <= "00000000010000000000000000000000000"; -- LD ST, Vx
 					when x"1E" =>
-						instruction <= "00000000100000000000000000000000000" -- ADD I, Vx
+						instruction <= "00000000100000000000000000000000000"; -- ADD I, Vx
 					when x"29" =>
-						instruction <= "00000001000000000000000000000000000" -- LD F, Vx
+						instruction <= "00000001000000000000000000000000000"; -- LD F, Vx
 					when x"33" =>
-						instruction <= "00000010000000000000000000000000000" -- LD B, Vx
+						instruction <= "00000010000000000000000000000000000"; -- LD B, Vx
 					when x"55" =>
-						instruction <= "00000100000000000000000000000000000" -- LD [I], Vx
+						instruction <= "00000100000000000000000000000000000"; -- LD [I], Vx
 					when x"65" =>
-						instruction <= "00001000000000000000000000000000000" -- LD Vx, [I]
+						instruction <= "00001000000000000000000000000000000"; -- LD Vx, [I]
 					when others => 
 						instruction <= "00010000000000000000000000000000000"
 				end case;
