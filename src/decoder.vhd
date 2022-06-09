@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
-entity decoder_sourde is
+entity decoder_source is
    Port (
       clock : in std_logic;
       reset : in std_logic;
@@ -18,9 +18,9 @@ entity decoder_sourde is
       
       instruction_out : out std_logic_vector(34 downto 0)
    );
-end decoder_sourde;
+end decoder_source;
 
-architecture rtl of decoder_sourde is
+architecture rtl of decoder_source is
    signal nnn   : std_logic_vector(11 downto 0);
    signal kk    : std_logic_vector(7 downto 0);
    signal x     : std_logic_vector(3 downto 0);
@@ -131,8 +131,22 @@ begin
 					when x"65" =>
 						instruction <= "00001000000000000000000000000000000"; -- LD Vx, [I]
 					when others => 
-						instruction <= "00010000000000000000000000000000000"
+						instruction <= "00010000000000000000000000000000000";
 				end case;
-   end process;
+
+					when x"9" =>
+						instruction <= "00100000000000000000000000000000000"; -- SNE Vx, Vy
+					when x"A" =>
+						instruction <= "01000000000000000000000000000000000"; -- LD I, addr
+					when x"B" =>
+						instruction <= "10000000000000000000000000000000000"; -- JP V0, addr
+					when x"C" =>
+						instruction <= "10000000000000000000000000000000001"; -- RND Vx, byte
+					when x"D" =>
+						instruction <= "10000000000000000000000000000000010"; -- DRW Vx, Vy, nibble
+					when others => 	
+						instruction <= "10000000000000000000000000000000100";
+		end case;
+	end process;
 
 end architecture;
