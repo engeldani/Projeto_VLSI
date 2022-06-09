@@ -31,7 +31,12 @@ begin
 					x"0123" after 400 ns,
 					x"1BBB" after 600 ns,
 					x"2FFF" after 800 ns,
-                    x"3EEE" after 1000 ns;
+                    x"3EEE" after 1000 ns,
+					x"4BBB" after 1200 ns,
+					x"5AAA" after 1400 ns,
+                    x"6AED" after 1600 ns,
+					x"7BCD" after 1800 ns,
+					x"8ADA" after 2000 ns;
 
 
 	decoder: entity work.DECODER_SOURCE
