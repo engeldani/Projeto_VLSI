@@ -102,17 +102,37 @@ begin
 
 			when x"E" =>
 				case opcode_in(7 downto 0) is
-				
 					when x"9E" =>
-				
+						instruction <= "00000000000000010000000000000000000";
 					when x"A1" =>
-
+						instruction <= "00000000000000100000000000000000000";
 					when others =>
+						instruction <= "00000000000001000000000000000000000"
 				end case;
 
-			when others => 
-				-- ERRO?
-		end case;
+			when x"F" =>
+				case opcode_in(7 downto 0) is
+					when x"07" =>
+						instruction <= "00000000000010000000000000000000000"
+					when x"0A" =>
+						instruction <= "00000000000100000000000000000000000"
+					when x"15" =>
+						instruction <= "00000000001000000000000000000000000"
+					when x"18" =>
+						instruction <= "00000000010000000000000000000000000"
+					when x"1E" =>
+						instruction <= "00000000100000000000000000000000000"
+					when x"29" =>
+						instruction <= "00000001000000000000000000000000000"
+					when x"33" =>
+						instruction <= "00000010000000000000000000000000000"
+					when x"55" =>
+						instruction <= "00000100000000000000000000000000000"
+					when x"65" =>
+						instruction <= "00001000000000000000000000000000000"
+					when others => 
+						instruction <= "00010000000000000000000000000000000"
+				end case;
    end process;
 
 end architecture;
