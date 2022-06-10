@@ -55,7 +55,7 @@ begin
 					x"D5C2" after 5200 ns;
 
 
-	decoder: entity work.decoder_source
+	decoder: entity work.decoder
 	port map 
 	(
 		clock 			=> tb_clock, 			
