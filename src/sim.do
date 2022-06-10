@@ -1,10 +1,11 @@
 vlib work
 vmap work work
 
-vcom -work work decoder_tb.vhd
-vcom -work work decoder.vhd
+vcom -work work decoder_tb
+vcom -work work decoder
 
 vsim -t 1ns +notimingchecks work.decoder_tb
+vsim -t 1ns +notimingchecks work.decoder
 
 
 
