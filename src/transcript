@@ -1,3 +1,17 @@
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2021.2 win64 Apr 14 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
 # do sim.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Errors: 0, Warnings: 1
@@ -5,14 +19,122 @@
 # vmap work work 
 # Modifying modelsim.ini
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 21:17:11 on Jun 09,2022
-# vcom -work work decoder_tb 
-# ** Error: (vcom-7) Failed to open design unit file "decoder_tb" in read mode.
-# No such file or directory. (errno = ENOENT)
-# End time: 21:17:11 on Jun 09,2022, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-# ** Error: C:/intelFPGA/21.1/questa_fse/win64/vcom failed.
-# Error in macro ./sim.do line 4
-# C:/intelFPGA/21.1/questa_fse/win64/vcom failed.
-#     while executing
-# "vcom -work work decoder_tb"
+# Start time: 21:57:02 on Jun 09,2022
+# vcom -reportprogress 300 -work work decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity decoder_source
+# -- Compiling architecture rtl of decoder_source
+# End time: 21:57:02 on Jun 09,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 21:57:03 on Jun 09,2022
+# vcom -reportprogress 300 -work work decoder_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity testbench
+# -- Compiling architecture tb of testbench
+# -- Loading entity decoder_source
+# End time: 21:57:03 on Jun 09,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -t 1ns "+notimingchecks" work.decoder_tb 
+# Start time: 21:57:03 on Jun 09,2022
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: (vopt-13130) Failed to find design unit decoder_tb.
+#         Searched libraries:
+#             work
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./sim.do PAUSED at line 7
+vsim -voptargs=+acc work.testbench
+# vsim -voptargs="+acc" work.testbench 
+# Start time: 21:57:03 on Jun 09,2022
+# ** Note: (vsim-8009) Loading existing optimized design _opt2
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=2, Warnings=0.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.testbench(tb)#1
+# Loading work.decoder_source(rtl)#1
+add wave -position end  sim:/testbench/tb_clock
+add wave -position end  sim:/testbench/tb_reset
+add wave -position end  sim:/testbench/tb_opcode_in
+add wave -position end  sim:/testbench/tb_nnn_out
+add wave -position end  sim:/testbench/tb_kk_out
+add wave -position end  sim:/testbench/tb_x_out
+add wave -position end  sim:/testbench/tb_y_out
+add wave -position end  sim:/testbench/tb_n_out
+add wave -position end  sim:/testbench/tb_instruction_out
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/Daniel/Documents/GitHub/ProjetoVLSI/src/wave.do
+# End time: 21:59:31 on Jun 09,2022, Elapsed time: 0:02:28
+# Errors: 2, Warnings: 0
