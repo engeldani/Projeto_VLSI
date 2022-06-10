@@ -23,13 +23,13 @@ package VgaUtils is
   constant VDATA_END   : integer := 514;
   constant VLINE_END   : integer := 524;
 
-  constant H_EIGHTH  : integer := 3 / 8;
-  constant H_HALF    : integer := 3 / 2;
-  constant H_QUARTER : integer := 3 / 4;
+  constant H_EIGHTH  : integer := 64 / 8;
+  constant H_HALF    : integer := 64 / 2;
+  constant H_QUARTER : integer := 64 / 4;
 
-  constant V_EIGHTH  : integer := 3 / 8;
-  constant V_HALF    : integer := 3 / 2;
-  constant V_QUARTER : integer := 3 / 4;
+  constant V_EIGHTH  : integer := 32 / 8;
+  constant V_HALF    : integer := 32 / 2;
+  constant V_QUARTER : integer := 32 / 4;
 
   procedure Square (
     signal hcur, vcur  : in integer;
