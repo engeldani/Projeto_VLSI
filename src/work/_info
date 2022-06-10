@@ -1,0 +1,34 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Daniel/Documents/GitHub/Projeto_VLSI/src
+Etestbench
+w1654818918
+DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1
+R0
+8decoder_tb.vhd
+Fdecoder_tb.vhd
+l0
+L6 1
+V2MnHSH[cafcCKk5PA[F;c0
+!s100 cJjo^h:5cmkC`=Y_@a@Ze2
+OL;C;2021.2;73
+32
+!s110 1654819185
+!i10b 1
+!s108 1654819185.000000
+!s90 -reportprogress|300|-work|work|decoder_tb.vhd|
+!s107 decoder_tb.vhd|
+!i113 0
+o-work work
+tExplicit 1 CvgOpt 0
