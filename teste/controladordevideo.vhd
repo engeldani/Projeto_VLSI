@@ -37,7 +37,7 @@ begin
 
   hsync   <= '1' when hcount > HSYNC_END else '0';
   vsync   <= '1' when vcount > VSYNC_END else '0';
-  rgb_out <= rgb_in & rgb_in & rgb_in when should_output_data else (others => '0');
+  rgb_out <= rgb_in & rgb_in & rgb_in;--when should_output_data else (others => '0');
   hpos    <= hcount;
   vpos    <= vcount;
 
