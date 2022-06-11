@@ -40,15 +40,15 @@ begin
 	-- 192 MHz
     clk     <= not clk after 5 ns;
     
-
-
  process is --configura as entrada do troca bits
- variable framebuffer : FB := (('1','1','1'), ('1','1','1'), ('1','1','1'));
-      begin
+    variable framebuffer : FB := (('1','1','1'),
+                                  ('1','1','1'), 
+                                  ('1','1','1'));
+    begin
+        wait for 0 ns;
+        rgb_in <= framebuffer (hpos, vpos);
 
-        rgb_in <= framebuffer(hpos, vpos);
-
-      wait; 
+    wait; 
  end process;
 
 
