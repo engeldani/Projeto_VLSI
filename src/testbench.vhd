@@ -31,22 +31,23 @@ begin
         port map(
             CLOCK   => clock_tb,
             reset   => reset_tb,
-            TECLA   => tecla_out,
+            TECLA_OUT   => tecla_out,
             A       => a_in,
             B       => b_in,
             C       => c_in,
             D       => d_in,
             E       => e_out,
             F       => f_out,
-            G       => g_out
-            H       => h_out,
+            G       => g_out,
+            H       => h_out
               
             
             --led_out    => led_tb
         );
+    
     a_in <= h_out;
     b_in <= '0';
     c_in <= '0';
-    d_in <= '0'
+    d_in <= '0';
    
 end architecture;

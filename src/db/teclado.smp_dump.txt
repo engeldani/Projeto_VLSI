@@ -1,0 +1,8 @@
+
+State Machine - |teclado|estado_ativo
+Name estado_ativo.ATIVA_H estado_ativo.ATIVA_G estado_ativo.ATIVA_F estado_ativo.ATIVA_E estado_ativo.ESPERA_COLUNAS 
+estado_ativo.ESPERA_COLUNAS 0 0 0 0 0 
+estado_ativo.ATIVA_E 0 0 0 1 1 
+estado_ativo.ATIVA_F 0 0 1 0 1 
+estado_ativo.ATIVA_G 0 1 0 0 1 
+estado_ativo.ATIVA_H 1 0 0 0 1 
