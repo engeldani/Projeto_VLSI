@@ -5,7 +5,7 @@ entity testbench is
 end testbench;
 
 architecture testbench of testbench is
-    signal clock_tb : std_logic;
+    signal clock_tb : std_logic:='1';
     signal reset_tb :std_logic;
     signal tecla_out : std_logic_vector(3 DOWNTO 0);
     signal a_in : std_logic;
@@ -20,12 +20,11 @@ architecture testbench of testbench is
     
     
 
-   -- signal led_tb : std_logic_vector(0 to 3);
 begin
 
-    reset_tb     <= '1', '0' after 100 ns;
+    reset_tb     <= '1', '0' after 150 ns;
 	-- 50 MHz
-	clock_tb     <= not clock_tb after 20 ns;
+	clock_tb     <=  not clock_tb after 20 ns;
 
     teclado : entity work.teclado
         port map(
