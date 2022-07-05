@@ -1,7 +1,7 @@
 
 LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
-USE ieee.numeric_std.all;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
 ENTITY alu IS
     PORT (
@@ -71,7 +71,7 @@ resposta <= res_addr when op_addr = '1' else
     res_and  <= vx and vy; --
     res_xor  <= vx xor vy; --
     res_sub  <= (to_integer(signed(vx)) - (to_integer(signed(vy))));
-    res_shr  <= shift_right(vx, 1);
+    res_shr  <= shift_right(to_integer(signed(vx)), 1);
     res_subn <= (to_integer(signed(vx)) - (to_integer(signed(vy))));
-    res_shl  <= shift_left(vx, 1);
+    res_shl  <= shift_left(to_integer(signed(vx)), 1);
 END ARCHITECTURE;
