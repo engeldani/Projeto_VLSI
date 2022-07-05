@@ -65,13 +65,13 @@ resposta <= res_addr when op_addr = '1' else
             overflow  <= vx(7);
         end if;
     END PROCESS;
-    res_addr <= (to_integer(signed(vx)) + (to_integer(signed(vy))));
-    res_addi <= (to_integer(signed(vx)) + (to_integer(signed(kk))));
+    res_addr <= std_logic_vector(signed(vx) + signed(vy));
+    res_addi <= std_logic_vector(signed(vx) + signed(kk));
     res_or   <= vx or vy; --
     res_and  <= vx and vy; --
     res_xor  <= vx xor vy; --
-    res_sub  <= (to_integer(signed(vx)) - (to_integer(signed(vy))));
-    res_shr  <= shift_right(to_integer(signed(vx)), 1);
-    res_subn <= (to_integer(signed(vx)) - (to_integer(signed(vy))));
-    res_shl  <= shift_left(to_integer(signed(vx)), 1);
+    res_sub  <= std_logic_vector(signed(vx) - signed(vy));
+    res_shr  <= std_logic_vector(shift_right(unsigned(vx), 1));
+    res_subn <= std_logic_vector(signed(vx) - signed(vy));
+    res_shl  <= std_logic_vector(shift_left(unsigned(vx), 1));
 END ARCHITECTURE;
