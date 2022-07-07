@@ -1,16 +1,47 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate -radix binary /testbench/tb_clock
-add wave -noupdate -radix binary /testbench/tb_reset
-add wave -noupdate -radix hexadecimal -childformat {{/testbench/tb_opcode_in(15) -radix hexadecimal} {/testbench/tb_opcode_in(14) -radix hexadecimal} {/testbench/tb_opcode_in(13) -radix hexadecimal} {/testbench/tb_opcode_in(12) -radix hexadecimal} {/testbench/tb_opcode_in(11) -radix hexadecimal} {/testbench/tb_opcode_in(10) -radix hexadecimal} {/testbench/tb_opcode_in(9) -radix hexadecimal} {/testbench/tb_opcode_in(8) -radix hexadecimal} {/testbench/tb_opcode_in(7) -radix hexadecimal} {/testbench/tb_opcode_in(6) -radix hexadecimal} {/testbench/tb_opcode_in(5) -radix hexadecimal} {/testbench/tb_opcode_in(4) -radix hexadecimal} {/testbench/tb_opcode_in(3) -radix hexadecimal} {/testbench/tb_opcode_in(2) -radix hexadecimal} {/testbench/tb_opcode_in(1) -radix hexadecimal} {/testbench/tb_opcode_in(0) -radix hexadecimal}} -subitemconfig {/testbench/tb_opcode_in(15) {-radix hexadecimal} /testbench/tb_opcode_in(14) {-radix hexadecimal} /testbench/tb_opcode_in(13) {-radix hexadecimal} /testbench/tb_opcode_in(12) {-radix hexadecimal} /testbench/tb_opcode_in(11) {-radix hexadecimal} /testbench/tb_opcode_in(10) {-radix hexadecimal} /testbench/tb_opcode_in(9) {-radix hexadecimal} /testbench/tb_opcode_in(8) {-radix hexadecimal} /testbench/tb_opcode_in(7) {-radix hexadecimal} /testbench/tb_opcode_in(6) {-radix hexadecimal} /testbench/tb_opcode_in(5) {-radix hexadecimal} /testbench/tb_opcode_in(4) {-radix hexadecimal} /testbench/tb_opcode_in(3) {-radix hexadecimal} /testbench/tb_opcode_in(2) {-radix hexadecimal} /testbench/tb_opcode_in(1) {-radix hexadecimal} /testbench/tb_opcode_in(0) {-radix hexadecimal}} /testbench/tb_opcode_in
-add wave -noupdate -radix binary -childformat {{/testbench/tb_nnn_out(11) -radix binary} {/testbench/tb_nnn_out(10) -radix binary} {/testbench/tb_nnn_out(9) -radix binary} {/testbench/tb_nnn_out(8) -radix binary} {/testbench/tb_nnn_out(7) -radix binary} {/testbench/tb_nnn_out(6) -radix binary} {/testbench/tb_nnn_out(5) -radix binary} {/testbench/tb_nnn_out(4) -radix binary} {/testbench/tb_nnn_out(3) -radix binary} {/testbench/tb_nnn_out(2) -radix binary} {/testbench/tb_nnn_out(1) -radix binary} {/testbench/tb_nnn_out(0) -radix binary}} -subitemconfig {/testbench/tb_nnn_out(11) {-radix binary} /testbench/tb_nnn_out(10) {-radix binary} /testbench/tb_nnn_out(9) {-radix binary} /testbench/tb_nnn_out(8) {-radix binary} /testbench/tb_nnn_out(7) {-radix binary} /testbench/tb_nnn_out(6) {-radix binary} /testbench/tb_nnn_out(5) {-radix binary} /testbench/tb_nnn_out(4) {-radix binary} /testbench/tb_nnn_out(3) {-radix binary} /testbench/tb_nnn_out(2) {-radix binary} /testbench/tb_nnn_out(1) {-radix binary} /testbench/tb_nnn_out(0) {-radix binary}} /testbench/tb_nnn_out
-add wave -noupdate -radix binary -childformat {{/testbench/tb_kk_out(7) -radix binary} {/testbench/tb_kk_out(6) -radix binary} {/testbench/tb_kk_out(5) -radix binary} {/testbench/tb_kk_out(4) -radix binary} {/testbench/tb_kk_out(3) -radix binary} {/testbench/tb_kk_out(2) -radix binary} {/testbench/tb_kk_out(1) -radix binary} {/testbench/tb_kk_out(0) -radix binary}} -subitemconfig {/testbench/tb_kk_out(7) {-radix binary} /testbench/tb_kk_out(6) {-radix binary} /testbench/tb_kk_out(5) {-radix binary} /testbench/tb_kk_out(4) {-radix binary} /testbench/tb_kk_out(3) {-radix binary} /testbench/tb_kk_out(2) {-radix binary} /testbench/tb_kk_out(1) {-radix binary} /testbench/tb_kk_out(0) {-radix binary}} /testbench/tb_kk_out
-add wave -noupdate -radix binary -childformat {{/testbench/tb_x_out(3) -radix binary} {/testbench/tb_x_out(2) -radix binary} {/testbench/tb_x_out(1) -radix binary} {/testbench/tb_x_out(0) -radix binary}} -subitemconfig {/testbench/tb_x_out(3) {-radix binary} /testbench/tb_x_out(2) {-radix binary} /testbench/tb_x_out(1) {-radix binary} /testbench/tb_x_out(0) {-radix binary}} /testbench/tb_x_out
-add wave -noupdate -radix binary -childformat {{/testbench/tb_y_out(3) -radix binary} {/testbench/tb_y_out(2) -radix binary} {/testbench/tb_y_out(1) -radix binary} {/testbench/tb_y_out(0) -radix binary}} -subitemconfig {/testbench/tb_y_out(3) {-radix binary} /testbench/tb_y_out(2) {-radix binary} /testbench/tb_y_out(1) {-radix binary} /testbench/tb_y_out(0) {-radix binary}} /testbench/tb_y_out
-add wave -noupdate -radix binary -childformat {{/testbench/tb_n_out(3) -radix binary} {/testbench/tb_n_out(2) -radix binary} {/testbench/tb_n_out(1) -radix binary} {/testbench/tb_n_out(0) -radix binary}} -subitemconfig {/testbench/tb_n_out(3) {-radix binary} /testbench/tb_n_out(2) {-radix binary} /testbench/tb_n_out(1) {-radix binary} /testbench/tb_n_out(0) {-radix binary}} /testbench/tb_n_out
-add wave -noupdate -radix binary -childformat {{/testbench/tb_instruction_out(34) -radix binary} {/testbench/tb_instruction_out(33) -radix binary} {/testbench/tb_instruction_out(32) -radix binary} {/testbench/tb_instruction_out(31) -radix binary} {/testbench/tb_instruction_out(30) -radix binary} {/testbench/tb_instruction_out(29) -radix binary} {/testbench/tb_instruction_out(28) -radix binary} {/testbench/tb_instruction_out(27) -radix binary} {/testbench/tb_instruction_out(26) -radix binary} {/testbench/tb_instruction_out(25) -radix binary} {/testbench/tb_instruction_out(24) -radix binary} {/testbench/tb_instruction_out(23) -radix binary} {/testbench/tb_instruction_out(22) -radix binary} {/testbench/tb_instruction_out(21) -radix binary} {/testbench/tb_instruction_out(20) -radix binary} {/testbench/tb_instruction_out(19) -radix binary} {/testbench/tb_instruction_out(18) -radix binary} {/testbench/tb_instruction_out(17) -radix binary} {/testbench/tb_instruction_out(16) -radix binary} {/testbench/tb_instruction_out(15) -radix binary} {/testbench/tb_instruction_out(14) -radix binary} {/testbench/tb_instruction_out(13) -radix binary} {/testbench/tb_instruction_out(12) -radix binary} {/testbench/tb_instruction_out(11) -radix binary} {/testbench/tb_instruction_out(10) -radix binary} {/testbench/tb_instruction_out(9) -radix binary} {/testbench/tb_instruction_out(8) -radix binary} {/testbench/tb_instruction_out(7) -radix binary} {/testbench/tb_instruction_out(6) -radix binary} {/testbench/tb_instruction_out(5) -radix binary} {/testbench/tb_instruction_out(4) -radix binary} {/testbench/tb_instruction_out(3) -radix binary} {/testbench/tb_instruction_out(2) -radix binary} {/testbench/tb_instruction_out(1) -radix binary} {/testbench/tb_instruction_out(0) -radix binary}} -subitemconfig {/testbench/tb_instruction_out(34) {-radix binary} /testbench/tb_instruction_out(33) {-radix binary} /testbench/tb_instruction_out(32) {-radix binary} /testbench/tb_instruction_out(31) {-radix binary} /testbench/tb_instruction_out(30) {-radix binary} /testbench/tb_instruction_out(29) {-radix binary} /testbench/tb_instruction_out(28) {-radix binary} /testbench/tb_instruction_out(27) {-radix binary} /testbench/tb_instruction_out(26) {-radix binary} /testbench/tb_instruction_out(25) {-radix binary} /testbench/tb_instruction_out(24) {-radix binary} /testbench/tb_instruction_out(23) {-radix binary} /testbench/tb_instruction_out(22) {-radix binary} /testbench/tb_instruction_out(21) {-radix binary} /testbench/tb_instruction_out(20) {-radix binary} /testbench/tb_instruction_out(19) {-radix binary} /testbench/tb_instruction_out(18) {-radix binary} /testbench/tb_instruction_out(17) {-radix binary} /testbench/tb_instruction_out(16) {-radix binary} /testbench/tb_instruction_out(15) {-radix binary} /testbench/tb_instruction_out(14) {-radix binary} /testbench/tb_instruction_out(13) {-radix binary} /testbench/tb_instruction_out(12) {-radix binary} /testbench/tb_instruction_out(11) {-radix binary} /testbench/tb_instruction_out(10) {-radix binary} /testbench/tb_instruction_out(9) {-radix binary} /testbench/tb_instruction_out(8) {-radix binary} /testbench/tb_instruction_out(7) {-radix binary} /testbench/tb_instruction_out(6) {-radix binary} /testbench/tb_instruction_out(5) {-radix binary} /testbench/tb_instruction_out(4) {-radix binary} /testbench/tb_instruction_out(3) {-radix binary} /testbench/tb_instruction_out(2) {-radix binary} /testbench/tb_instruction_out(1) {-radix binary} /testbench/tb_instruction_out(0) {-radix binary}} /testbench/tb_instruction_out
+add wave -noupdate /branch_tb/tb_clock
+add wave -noupdate /branch_tb/tb_reset
+add wave -noupdate /branch_tb/tb_op_sys
+add wave -noupdate /branch_tb/tb_op_ret
+add wave -noupdate /branch_tb/tb_op_jp
+add wave -noupdate /branch_tb/tb_op_call
+add wave -noupdate /branch_tb/tb_op_sei
+add wave -noupdate /branch_tb/tb_op_snei
+add wave -noupdate /branch_tb/tb_op_ser
+add wave -noupdate -radix hexadecimal /branch_tb/tb_vx_in
+add wave -noupdate -radix hexadecimal /branch_tb/tb_vy_in
+add wave -noupdate -radix hexadecimal /branch_tb/tb_kk_in
+add wave -noupdate -radix hexadecimal /branch_tb/tb_nnn_in
+add wave -noupdate -radix hexadecimal /branch_tb/tb_stack_data_in
+add wave -noupdate -radix hexadecimal /branch_tb/tb_pc_out
+add wave -noupdate -radix hexadecimal /branch_tb/tb_stack_addr
+add wave -noupdate -radix hexadecimal /branch_tb/tb_stack_data_out
+add wave -noupdate /branch_tb/tb_stack_data_w
+add wave -noupdate -divider branch
+add wave -noupdate /branch_tb/branch/clock
+add wave -noupdate /branch_tb/branch/reset
+add wave -noupdate /branch_tb/branch/op_sys
+add wave -noupdate /branch_tb/branch/op_ret
+add wave -noupdate /branch_tb/branch/op_jp
+add wave -noupdate /branch_tb/branch/op_call
+add wave -noupdate /branch_tb/branch/op_sei
+add wave -noupdate /branch_tb/branch/op_ser
+add wave -noupdate /branch_tb/branch/op_snei
+add wave -noupdate -radix hexadecimal /branch_tb/branch/vx_in
+add wave -noupdate -radix hexadecimal /branch_tb/branch/vy_in
+add wave -noupdate -radix hexadecimal /branch_tb/branch/kk_in
+add wave -noupdate -radix hexadecimal /branch_tb/branch/nnn_in
+add wave -noupdate -radix hexadecimal /branch_tb/branch/stack_data_in
+add wave -noupdate -radix hexadecimal /branch_tb/branch/pc_out
+add wave -noupdate -radix hexadecimal /branch_tb/branch/stack_addr
+add wave -noupdate -radix hexadecimal /branch_tb/branch/stack_data_out
+add wave -noupdate /branch_tb/branch/stack_data_w
+add wave -noupdate -radix hexadecimal /branch_tb/branch/pc
+add wave -noupdate -radix hexadecimal /branch_tb/branch/sp
+add wave -noupdate /branch_tb/branch/estado
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {254 ns} 0}
+WaveRestoreCursors {{Cursor 1} {205000 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -23,7 +54,7 @@ configure wave -childrowmargin 2
 configure wave -gridoffset 0
 configure wave -gridperiod 1
 configure wave -griddelta 40
-configure wave -timeline 0
+configure wave -timeline 1
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {1 us}
+WaveRestoreZoom {168154 ps} {337870 ps}
