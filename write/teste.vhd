@@ -24,7 +24,8 @@ architecture draw of draw is
 
 begin
 --maquina de estados (inicial, ) cls 2 e drw 3 
-        
+	type SM_Main_t is (start, cls1, cls2, wrt1,wrt2, wrt3);
+  signal SM_Main_r : SM_Main_t := Idle_s;
 	process(clock) 
         begin
             if rising_edge(clock) then
