@@ -18,5 +18,5 @@ vsim -voptargs=+acc -wlfdeleteonquit work.branch_tb
 #add wave sim:/branch/*
 do wave.do
 
-## execuão da simulação.
+## execução da simulação.
 run 4 us
