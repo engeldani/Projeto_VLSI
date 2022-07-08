@@ -45,7 +45,7 @@ process(clock)
                 when start =>
                     if op_cls= '1' then
                         estado <= CLS_1;
-                    end if;
+                   
                     when CLS_1=>
                    -- Para ler:
 
