@@ -40,7 +40,8 @@ architecture branch_arch of branch is
 	signal pc	:	std_logic_vector(11 downto 0) 	:= x"000";
 	signal sp	:	std_logic_vector(7 downto 0) 	:= x"00";
 
-	signal estado	:	integer	:= 0;	
+	signal estado		:	integer	:= 0;	
+	signal estado_ret	:	integer	:= 0;	
 
 begin
 
@@ -53,10 +54,14 @@ begin
 			sp 				<= x"00";
 			stack_data_w	<= '0';
 			stack_addr		<= x"00";
-			stack_data_out <= x"000";
+			stack_data_out 	<= x"000";
+			estado			<= 0;
+			estado_ret		<= 0;
+
 		else
 			if clock'event and clock = '1' then
 
+				-- FSM do CALL.
 				if estado > 0 then
 					estado <= estado - 1;
 				else
@@ -73,8 +78,27 @@ begin
 
 					when others =>
 						stack_data_w <= '0';
+				end case;
+
+				-- fsm do RET.
+				if estado_ret > 0 then
+					estado_ret <= estado_ret - 1;
+				else
+					estado_ret <= 0;
+				end if;
+
+
+				case estado_ret is
+					when 1 =>
+						pc	<= stack_data_in;
+						
+					when 2 =>
+						stack_addr		<= sp;
+
+					when others =>
 
 				end case;
+
 
 
 				if op_sys = '1' then		-- 0nnn - SYS addr.	 
@@ -82,7 +106,7 @@ begin
 
 
 				elsif op_ret = '1' then		-- 00EE - RET
-					pc	<= stack_data_in;
+					estado_ret	<= 2;
 					sp	<= sp - 1;
 
 
@@ -95,7 +119,6 @@ begin
 					estado 			<= 2;
 					sp 				<= sp + 1;
 					stack_data_out 	<= pc;
-					--
 
 
 				elsif op_sei = '1' then		-- 3xkk - SE Vx, byte
