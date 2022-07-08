@@ -40,8 +40,9 @@ add wave -noupdate /branch_tb/branch/stack_data_w
 add wave -noupdate -radix hexadecimal /branch_tb/branch/pc
 add wave -noupdate -radix hexadecimal /branch_tb/branch/sp
 add wave -noupdate /branch_tb/branch/estado
+add wave -noupdate /branch_tb/branch/estado_ret
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {205000 ps} 0}
+WaveRestoreCursors {{Cursor 1} {3889097 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -57,4 +58,4 @@ configure wave -griddelta 40
 configure wave -timeline 1
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {168154 ps} {337870 ps}
+WaveRestoreZoom {0 ps} {4200 ns}
