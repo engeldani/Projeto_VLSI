@@ -74,7 +74,7 @@ process(clock)
                                   --Ciclo 3 do DRW:
                                   --fb_write_enable <= '1'
                                   --se contador = 15, estado = inicial e contador <= 0, senao contador <= contador + 1 e estado <= ciclo 1 do   DRW
-
+            end case;
         end if;
-end process;
+    end process;
 end architecture; 
