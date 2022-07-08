@@ -23,10 +23,13 @@ end draw;
 architecture draw of draw is
 
 signal counter : std_logic_vector (7 downto 0);
+signal x : std_logic_vector (63 downto 0);
+signal y : std_logic_vector (31 downto 0);
+ 
 
 begin
 --maquina de estados (inicial, ) cls 2 e drw 3 
-type SM_Main_t is (start, DRW_1, DRW_2);
+type SM_Main_t is (start,CLS_1, CLS_2, DRW_1, DRW_2,DRW_3);
 signal SM_Main_r : SM_Main_t := start;
 
 process(clock) 
@@ -41,7 +44,30 @@ process(clock)
             case SM_Main_r is
                 when start =>
                     if op_cls= '1' then
-                                   -- op do cls aqui dentro
+                        estado <= CLS_1;
+                    end if;
+                    when CLS_1=>
+                   -- Para ler:
+
+                    --1o ciclo:
+                    --addr_x <= endereço em x para leitura do fb
+                    --addr_y <= endereço em y para leitura do fb
+                    
+                    --2o ciclo: dado está disponível no barramento
+                    --dado <= fb_data_in
+                    when CLS_2=>
+                    --Para escrever:
+
+                    --1o ciclo:
+                    --addr_x <= endereço em x
+                    --addr_y <= endereçõ em y
+                    --fb_data_OUT <= valor para escrever
+                    --write_enable <= '1'
+
+                    --2o ciclo: o dado está escrito, parar de escrever
+                    --write_enable <= '0';
+            
+                        -- op do cls aqui dentro
                     elsif op_drw = '1' then
                                         -- primeiro ciclo do drw aqui 
                                         --Ciclo 1 do DRW:
