@@ -40,13 +40,14 @@ process(clock)
             op_drw <= 0;
 
             estado <= start;
+        end if;
         if rising_edge(clock) then
             case SM_Main_r is
                 when start =>
                     if op_cls= '1' then
                         estado <= CLS_1;
-                   
-                    when CLS_1=>
+                    
+                when CLS_1=>
                    -- Para ler:
 
                     --1o ciclo:
@@ -55,7 +56,7 @@ process(clock)
                     
                     --2o ciclo: dado está disponível no barramento
                     --dado <= fb_data_in
-                    when CLS_2=>
+                when CLS_2=>
                     --Para escrever:
 
                     --1o ciclo:
@@ -85,8 +86,8 @@ process(clock)
                                   -- segundo ciclo do drw aqui... pode permanecer por vários ciclos pq é um 'loop'
                                   --Verifica a colisão: fb_data_in AND mem_data_in --> verificar se o resultado dessa operação produz algum bit 1 e escrever em "VF_OUT"
                                   --fb_data_out <= fb_data_in XOR mem_data_in -- essa é a op de desenhar no fb
-                                  --fb_addr <= conforme Vx e (Vy + contador), o mesmo do ciclo anterior
-                                  --fb_write_enable <= '1'
+                       -- fb_addr <= conforme Vx e (Vy + contador), o mesmo do ciclo anterior
+                    fb_write_enable <= '1'
                     estado <= DRW_3;                                  
                 when DRW_3=>
                     if counter = n then
@@ -95,7 +96,7 @@ process(clock)
                     else
                         estado <= DRW_1;
                         counter <= counter + 1; 
-
+                    end if;
                 
                                   --Ciclo 3 do DRW:
                                   --fb_write_enable <= '1'
