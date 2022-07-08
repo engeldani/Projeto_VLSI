@@ -183,6 +183,41 @@ begin
 		wait for 200 ns;
 
 
+
+
+		tb_nnn_in	<= x"352";
+		tb_op_sys	<= '0';
+		tb_op_ret	<= '0';
+		tb_op_jp	<= '0';
+		tb_op_call	<= '0';
+		tb_op_sei	<= '0';
+		tb_op_ser	<= '0';
+		tb_op_snei	<= '0';
+		tb_op_sner	<= '0';
+		wait for 200 ns;
+
+
+		tb_op_sys	<= '0';
+		tb_op_ret	<= '1';
+		tb_op_jp	<= '0';
+		tb_op_call	<= '0';
+		tb_op_sei	<= '0';
+		tb_op_ser	<= '0';
+		tb_op_snei	<= '0';
+		tb_op_sner	<= '0';
+		wait for 10 ns;
+
+
+		tb_op_sys	<= '0';
+		tb_op_ret	<= '0';
+		tb_op_jp	<= '0';
+		tb_op_call	<= '0';
+		tb_op_sei	<= '0';
+		tb_op_ser	<= '0';
+		tb_op_snei	<= '0';
+		tb_op_sner	<= '0';
+		wait for 200 ns;
+
 		
 		wait;
 
