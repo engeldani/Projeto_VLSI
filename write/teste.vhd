@@ -16,20 +16,65 @@ entity draw is
             fb_write      : out std_logic; --só um pulso pra realizar a escrita?  fp 64 x 32 bits 256 posições -- write controla a escrita
             fb_addr       : out std_logic_vector(7 downto 0); --veirificar se é a posição do objeto na matriz -8 bits
             fb_data       : out std_logic_vector(7 downto 0);
-            busy          : out std_logic --enquanto ta realizando fica em 1 pra não receber mais instruções 
+            busy          : out std_logic; --enquanto ta realizando fica em 1 pra não receber mais instruções 
     );
 end draw;
 
 architecture draw of draw is
 
+signal counter : std_logic_vector (7 downto 0);
+
 begin
 --maquina de estados (inicial, ) cls 2 e drw 3 
-	type SM_Main_t is (start, cls1, cls2, wrt1, wrt2, wrt3);
-  signal SM_Main_r : SM_Main_t := Idle_s;
-	process(clock) 
-        begin
-            if rising_edge(clock) then
+type SM_Main_t is (start, DRW_1, DRW_2);
+signal SM_Main_r : SM_Main_t := start;
 
-            end if;
-        end process;
+process(clock) 
+    begin
+        if reset = '1' then           -- faz teu reset aqui
+            fb_data_in <= (others '0');
+            op_cls <= 0;
+            op_drw <= 0;
+
+            estado <= start;
+        if rising_edge(clock) then
+            case SM_Main_r is
+                when start =>
+                    if op_cls= '1' then
+                                   -- op do cls aqui dentro
+                    elsif op_drw = '1' then
+                                        -- primeiro ciclo do drw aqui 
+                                        --Ciclo 1 do DRW:
+                                        --Prepara a leitura da memória conforme I + contador
+                                        --Prepara a leitura do FB conforme VX e (VY + contador)
+                        estado <= DRW_1;
+                    end if;
+                when DRW_1 =>
+                                        -- primeiro ciclo do drw aqui 
+                                        --Ciclo 1 do DRW:
+                                        --Prepara a leitura da memória conforme I + contador
+                                        --Prepara a leitura do FB conforme VX e (VY + contador)
+                    estado <= DRW_2;
+                when DRW_2 =>
+                                  -- segundo ciclo do drw aqui... pode permanecer por vários ciclos pq é um 'loop'
+                                  --Verifica a colisão: fb_data_in AND mem_data_in --> verificar se o resultado dessa operação produz algum bit 1 e escrever em "VF_OUT"
+                                  --fb_data_out <= fb_data_in XOR mem_data_in -- essa é a op de desenhar no fb
+                                  --fb_addr <= conforme Vx e (Vy + contador), o mesmo do ciclo anterior
+                                  --fb_write_enable <= '1'
+                    estado <= DRW_3;                                  
+                when DRW_3=>
+                    if counter = n then
+                        estado <= start;
+                        counter<= (others => '0');
+                    else
+                        estado <= DRW_1;
+                        counter <= counter + 1; 
+
+                
+                                  --Ciclo 3 do DRW:
+                                  --fb_write_enable <= '1'
+                                  --se contador = 15, estado = inicial e contador <= 0, senao contador <= contador + 1 e estado <= ciclo 1 do   DRW
+
+        end if;
+end process;
 end architecture; 
