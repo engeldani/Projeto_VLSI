@@ -14,7 +14,7 @@
 # //
 # do sim.do
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 20:38:40 on Jul 07,2022
+# Start time: 15:18:41 on Jul 08,2022
 # vcom -reportprogress 300 ./branch.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -23,10 +23,10 @@
 # -- Loading package STD_LOGIC_UNSIGNED
 # -- Compiling entity branch
 # -- Compiling architecture branch_arch of branch
-# End time: 20:38:41 on Jul 07,2022, Elapsed time: 0:00:01
+# End time: 15:18:41 on Jul 08,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
-# Start time: 20:38:41 on Jul 07,2022
+# Start time: 15:18:41 on Jul 08,2022
 # vcom -reportprogress 300 ./branch_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -36,11 +36,11 @@
 # -- Compiling entity branch_tb
 # -- Compiling architecture branch_tb_arch of branch_tb
 # -- Loading entity branch
-# End time: 20:38:41 on Jul 07,2022, Elapsed time: 0:00:00
+# End time: 15:18:41 on Jul 08,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -voptargs="+acc" -wlfdeleteonquit work.branch_tb 
-# Start time: 20:38:41 on Jul 07,2022
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Start time: 15:18:42 on Jul 08,2022
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -48,5 +48,5 @@
 # Loading ieee.std_logic_unsigned(body)
 # Loading work.branch_tb(branch_tb_arch)#1
 # Loading work.branch(branch_arch)#1
-# End time: 20:41:00 on Jul 07,2022, Elapsed time: 0:02:19
+# End time: 15:19:02 on Jul 08,2022, Elapsed time: 0:00:20
 # Errors: 0, Warnings: 0
