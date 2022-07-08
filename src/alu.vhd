@@ -5,21 +5,21 @@ use IEEE.numeric_std.all;
 
 ENTITY alu IS
     PORT (
-        clock   : IN STD_LOGIC;
-        reset   : IN STD_LOGIC;
-        op_addr : IN STD_LOGIC;
-        op_addi : IN STD_LOGIC;
-        op_or   : IN STD_LOGIC;
-        op_and  : IN STD_LOGIC;
-        op_xor  : IN STD_LOGIC;
-        op_sub  : IN STD_LOGIC; 
-        op_shr  : IN STD_LOGIC; --
-        op_subn : IN STD_LOGIC;
-        op_shl  : IN STD_LOGIC;
-        vx      : IN STD_LOGIC_VECTOR(7 DOWNTO 0);    --registrador1
-        vy      : IN STD_LOGIC_VECTOR(7 DOWNTO 0);    --registrador2
-        kk      : IN STD_LOGIC_VECTOR(7 DOWNTO 0);    --imediato
-        alu_out : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+        clock    : IN STD_LOGIC;
+        reset    : IN STD_LOGIC;
+        op_addr  : IN STD_LOGIC;
+        op_addi  : IN STD_LOGIC;
+        op_or    : IN STD_LOGIC;
+        op_and   : IN STD_LOGIC;
+        op_xor   : IN STD_LOGIC;
+        op_sub   : IN STD_LOGIC; 
+        op_shr   : IN STD_LOGIC; --
+        op_subn  : IN STD_LOGIC;
+        op_shl   : IN STD_LOGIC;
+        vx       : IN STD_LOGIC_VECTOR(7 DOWNTO 0);    --registrador1
+        vy       : IN STD_LOGIC_VECTOR(7 DOWNTO 0);    --registrador2
+        kk       : IN STD_LOGIC_VECTOR(7 DOWNTO 0);    --imediato
+        alu_out  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
         underflow: out std_logic;
         borrow   : out std_logic;
         overflow : out std_logic
@@ -59,9 +59,8 @@ resposta <= res_addr when op_addr = '1' else
             borrow    <= '0';
             overflow  <= '0';
         elsif(rising_edge(clock))then
-            alu_out   <=resposta;
+            alu_out   <= resposta;
             underflow <= vx(0);
-            --borrow    <= std_logic(to_integer(signed(vx)) < to_integer(signed(vy)));
             overflow  <= vx(7);
         end if;
     END PROCESS;
